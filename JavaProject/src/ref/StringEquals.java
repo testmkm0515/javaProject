@@ -7,7 +7,7 @@ public class StringEquals {
 		// "문자열" 대입
 		// String 클래스는 문자열이 저장되는 변수 1개가 있음 저장 문자열이 동일하면 기존 객체를 사용
 		String strVar1="신민수"; //String클래스의 객체 인스턴스 생성됨
-		String strVar2="신민수"; //위에서 생성한 객체 인스턴스를 참조함
+		String strVar2="신민철"; //위에서 생성한 객체 인스턴스를 참조함
 		
 		//참조변수에대한  == 연산은 참조주소가 같은지 확인
 		if(strVar1==strVar2) { //참조변수가 저장하고 있는 주소가 같은지를 확인
