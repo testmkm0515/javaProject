@@ -25,9 +25,13 @@ public class A {
 		void method1() {}
 		static void method2() {};
 	}
+	
 	/** 로컬(method 내부에 선언) 클래스 **/
 	void method() {
-		/** 로컬클래스 : 인스턴스 필드와 메소드만 포함 가능**/
+		/** 로컬클래스 : 인스턴스 필드와 메소드만 포함 가능
+		 * 메소드 호출 시점에 로컬클래스는 메서드 저장영역(메모리)에 JVM에 의해 저장됨
+		 * 로컬 클래스 삭제는 프로그램이 종료되면 삭제 됨
+		 * **/
 		class D {
 			D(){System.out.println("D객체가 생성됨");}
 			int field1;
@@ -36,7 +40,7 @@ public class A {
 		D d = new D(); //현 시점(메소드 호출되면)에서 생성 메소드 실행이 종료되면 제거됨
 		d.field1 = 3;
 		d.method1();
-	}
+	}//메소드 호출이 종료되면 생성한 instance는 제거됨, 참조를 중단 후 재사용 가능
 }
 
 
