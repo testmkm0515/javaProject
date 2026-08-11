@@ -34,6 +34,7 @@ public class JdbcTestMain {
 			//ResultSet 객체 활용 포인터 이동해가면서 각 속성 값 추출
 			//getXXX(속성번호) : XXX -> String, Int, Date
 			while(rs.next()) {
+				//각 메소드가 속성값 1개를 추출, 전체 메소드를 실행하면 1개 레코드의 각 속성 데이터가 변수에 저장됨
 				String bookNo = rs.getString(1);
 				String bookName = rs.getString(2);
 				String bookAuthor = rs.getString(3);
