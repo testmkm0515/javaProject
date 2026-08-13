@@ -15,12 +15,13 @@ public class Hanoi {
 	}
 	
 	static void hanoi(int from, int m, int to, int n) {
-		System.out.printf("f:%d m:%d t:%d\n", from, m, to);
+		System.out.printf("f:%d m:%d t:%d n:%d\n", from, m, to,n);
 		if(n==0) return;
 		
-		hanoi(from,to,m, n-1);
-		System.out.printf("원반 [%d]을 %d에서 %d로 이동\n",n,from,to);
-		hanoi(m,from,to,n-1);
+		hanoi(from,to,m, n-1); //내 위에 있는 원반을 보조기둥에 이동
+		System.out.printf("원반 [%d]을 %d에서 %d로 이동\n",n,from,to); //위에 어느것도 없으면 나른 목적이에 이동
+		System.out.printf("f:%d m:%d t:%d n:%d\n", from, m, to,n);
+		hanoi(m,from,to,n-1); //보조기둥에 있는원반을 목적지로 이동
 		
 	}
 
