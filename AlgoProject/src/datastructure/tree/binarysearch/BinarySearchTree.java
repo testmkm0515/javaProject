@@ -2,6 +2,7 @@ package datastructure.tree.binarysearch;
 
 import java.util.Comparator;
 
+
 public class BinarySearchTree<E> {
 	private Node<E> root; //루트(최상단)노드
 	private int size; //요소(노드)의 개수

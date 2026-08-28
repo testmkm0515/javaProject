@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 창</title>
+<script>
+	/*자바스크립트로 서블릿에 요청 - 버튼객체에서 함수호출 사용*/
+	function fn_validate(){
+	let frmLogin = document.frmLogin;
+	let user_id = frmLogin.user_id;
+	let user_pw = frmLogin.user_pw;
+	
+	if(user_id.value=="" || user_pw.value==""){
+		alert("아이디와 비밀번호는 필수 입니다.!!")
+	}else{
+		frmLogin.method = "post";
+		frmLogin.action = "login4";
+		frmLogin.submit(); //submit 발생
+	}	
+	
+	}
+
+	
+</script>
+</head>
+<body>
+	<h3>JavaScript 활용 submit</h3>
+	<p>
+	<form id="frmLogin" name="frmLogin" >
+		아이디 : <input type="text" name="user_id" id="id"><br>
+		비밀번호 : <input type="password" name="user_pw" id="pw"><br>
+		<input type="button" value="로그인" onClick="fn_validate()"> <input type="reset" value="다시입력">	
+	</form>
+</body>
+</html>
