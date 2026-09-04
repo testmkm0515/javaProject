@@ -1,14 +1,16 @@
-package secure.exam;
+package encryption.sec01;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
+import encryption.sec02.DBConn;
+
 public class StudentInjectMain {
 	public static void main(String[] args) {
 		//DB 연결
-		DBConnect dbCon = new DBConnect();
+		DBConn dbCon = new DBConn();
 		Connection con = dbCon.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

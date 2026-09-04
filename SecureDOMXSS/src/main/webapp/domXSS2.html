@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function testIt(){
+		let input = document.getElementById('input-test').value;
+		let testInnerHtml = document.getElementById('test-innerHTML');
+		let testHtml = document.getElementById('test-html');
+		//jquery 라이브러리를 이용한 태그 추가 -> html() 자바스크립트로 되어있는 함수 전달되는 매개변수는 자바스크립트 코드 내로 들어가게 됨
+		// $(testHtml).html(input);
+		$(testHtml).text(input);
+		//html 참조변수 속성을 이용한 태그 추가
+		//testInnerHtml.innerHTML = input;
+	}
+</script>
+<head>this is a test</head>
+<body>  
+    <input id="input-test" type="text" name="foo" />
+    <input type="button" onClick="testIt();" value="test!"/>
+    <div id="test-html">
+    </div>
+    <div id="test-innerHTML">
+    </div>
+</body>
+</html>

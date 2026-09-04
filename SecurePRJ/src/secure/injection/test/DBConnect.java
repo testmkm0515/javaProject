@@ -1,4 +1,4 @@
-package secure.exam;
+package secure.injection.test;
 
 
 import java.sql.Connection;
@@ -10,8 +10,8 @@ public class DBConnect {
 		// 예외처리 필요
 		try {
 
-			String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-			String user = "sql_select";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "C##SQL_USER";
 			String pwd = "1234";
 			
 			con = DriverManager.getConnection(url, user, pwd); // db 연결이 성공되면 객체가 반환 실패하면 null 값이 반환

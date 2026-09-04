@@ -1,4 +1,4 @@
-package secure.exam;
+package secure.injection.test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,9 +43,7 @@ public class StudentInjectMain {
 				System.out.format("%-10s\t %-20s\t %6d \n",stdNo, stdName, stdYear);
 			}
 		}catch(Exception e) {
-			//e.printStackTrace(); //로그용으로 구성
-			//페이지인 경우에는 에러페이지가 전송되도록 구성
-			System.out.println("잘못된 구문이 입력되었습니다");
+			//e.printStackTrace();
 		}
 	}
 }
