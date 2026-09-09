@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="nameService" class="com.di.spring_di_xml_constructor.NameService"/>
+	
+	<bean id="nameController" class="com.di.spring_di_xml_constructor.NameController">
+		<!-- 생성자 기반 주입 : IOC 컨테이너(스프링프레임워크)가 진행-->
+		<constructor-arg ref="nameService"/>
+	</bean>
+
+</beans>

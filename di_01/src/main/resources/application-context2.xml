@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- setter 기반 DI -->
+	
+	<bean id="nameService" class="com.di.spring_di_xml_setter.NameService"/>
+	
+	<bean id="nameController" class="com.di.spring_di_xml_setter.NameController">
+		<!-- setter 기반 : property 태그 사용 -->
+		<!-- 
+			name : setter 메소드 이름 set은 제외하고 첫글자를 소문자로 -> setter에 대응되는 필드명
+		 -->
+		<property name="nameService" ref="nameService"/>
+	</bean>
+
+</beans>

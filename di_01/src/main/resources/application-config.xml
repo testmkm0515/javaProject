@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Annotation을 사용하기위한 태그 추가 
+		 의존성 주입과 관련된 설정은 annotation으로 진행
+		 bean은 xml로 생성
+	-->
+	<context:annotation-config/>
+	<!-- INameInterface 타입으로 참조가 가능한 bean -->
+	<bean id="nameService" class="com.di.spring_di_annotation.NameService"/>
+	<!-- INameInterface 타입으로 참조가 가능한 bean -->
+	<bean id="anotherNameService" class="com.di.spring_di_annotation.AnotherNameService"/>	
+	
+	<!-- INameInterface와 상관 없는 bean-->
+	<!-- nameController가 nameService를 의존하고 있음 의존관계는 어노테이션으로 진행 -->
+	<bean id="nameController" class="com.di.spring_di_annotation.NameController"/>
+
+</beans>
