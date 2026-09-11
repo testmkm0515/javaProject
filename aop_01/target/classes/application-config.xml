@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- 공통기능 클래스 bean 등록 -->
+	<bean id="performanceAspect" class="com.spring_aop.xml.PerformanceAspect"/>
+	
+	<!-- aop 설정 -->
+	<aop:config>
+		<aop:aspect id="performanceAspect" ref="performanceAspect">
+			<!-- where:com.spring_aop.xml 패키지 내 모든 메소드에 적용  -->
+			<aop:pointcut expression="within(com.spring_aop.xml.*)" id="timeElapse"/>
+			<!-- when : 전/후, what : trace()메소드 -->
+			<aop:around method="trace" pointcut-ref="timeElapse"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- 핵심기능 클래스 bean 등록 -->
+	<bean id="rect" class="com.spring_aop.xml.Rect">
+		<property name="width" value="10"/>
+		<property name="height" value="20"/>	
+	</bean>
+	
+	<bean id="gugadan" class="com.spring_aop.xml.Gugadan">
+		<property name="dan" value="7"/>
+	</bean>	
+	
+	
+
+</beans>
+
+
+
+
+
+
+
