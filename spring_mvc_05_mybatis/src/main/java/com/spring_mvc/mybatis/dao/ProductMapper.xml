@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- xml 파일의 문법 규칙은 mybatis-3-mapper.dtd 파일의 규칙을 따라야 함-->
+
+<!-- 
+현재 mapper가 구현할 메소드를 정의 
+IProductDAO 추상메소드를 현재 mapper에서 구현해야 함
+-->
+<mapper namespace="com.spring_mvc.mybatis.dao.IProductDAO">
+	<resultMap type="com.spring_mvc.mybatis.dto.ProductDTO" id="prdResult">
+		<result property="prdNo" column="prdNo"/>
+		<result property="prdName" column="prdName"/>
+		<result property="prdPrice" column="prdPrice"/>
+		<result property="prdCompany" column="prdCompany"/>
+		<result property="prdStock" column="prdStock"/>
+		<result property="prdDate" column="prdDate"/>	
+	</resultMap>
+
+	<!-- 
+	태그의 id값과 인터페이스 추상메소드명이 동일 
+	반환값에 대한 내용도 태그 속성으로 전달
+	여러 레코드가 반환됨 resultMap 사용
+	한개의 레코드면 resultType을 사용
+	-->
+	<!-- <select id="listAllProduct" resultMap="prdResult">
+		SELECT * FROM product ORDER BY prdNo
+	</select>-->
+	<!-- 
+		ProductDTO 클래스의 필드명과 product 테이블의 컬럼명이 동일해야 함
+		반환 레코드가 여러개 인 경우 List타입의 콜렉션에 저장해서 반환
+		listAllProduct 추상메소드가 반환타입이 ArrayList타입 이므로 ArrayList타입으로 반환됨
+	 -->
+	 <!-- 전체 상품 조회 -->
+	<select id="listAllProduct" resultType="com.spring_mvc.mybatis.dto.ProductDTO">
+		SELECT * FROM product ORDER BY prdNo
+	</select>
+	
+	<!-- 상품 등록 : void insertProduct(ProductDTO prdDto)
+		 매개변수의 파입을 parameterType에 value로 설정
+		 쿼리에 결정되지 않은 값이 매핑되어야 할 때는 place holder를 사용
+		 #{필드명/변수명} 또는 ${필드명/변수명} 중 하나를 사용함
+		 ${}는 statement 객체의 변수 역할을 함, 재사용이 가능한 #{}를 더 많이 사용
+	-->
+	<insert id="insertProduct" parameterType="com.spring_mvc.mybatis.dto.ProductDTO">
+		INSERT INTO product(prdNo, prdName, prdPrice, prdCompany, prdStock, prdDate)
+		VALUES (#{prdNo}, #{prdName}, #{prdPrice}, #{prdCompany}, #{prdStock}, #{prdDate})	
+	</insert>
+	
+	<!-- 상품상세정보 조회 : 조건절이 있는 select 
+		 파라미터와 result가 모두 있는 태그로 구성해야 함
+	-->
+	<select id="detailViewProduct" parameterType="string" resultType="com.spring_mvc.mybatis.dto.ProductDTO">
+		SELECT * FROM product WHERE prdNo= #{prdNo}
+	</select>
+	
+	<!-- 상품정보 수정 : 상품번호는 수정하지 않는다 기본키 -->
+	<update id="updateProduct" parameterType="com.spring_mvc.mybatis.dto.ProductDTO">
+		UPDATE product SET prdName=#{prdName}, prdPrice=#{prdPrice}, prdCompany=#{prdCompany},
+						   prdStock=#{prdStock}, prdDate=#{prdDate}
+		WHERE prdNo=#{prdNo} 
+	</update>
+	
+	<!-- 상품정보 삭제 -->
+	<delete id="deleteProduct" parameterType="string">
+		DELETE FROM product WHERE prdNo=#{prdNo}
+	</delete>
+</mapper>
+
+
+
+
