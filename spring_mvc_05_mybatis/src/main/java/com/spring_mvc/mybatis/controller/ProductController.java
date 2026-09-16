@@ -126,7 +126,27 @@ public class ProductController {
 		String result = service.prdNoCheck(prdNo); //상품번호 중복 체크 service에서 진행 결과만 반환
 		System.out.println(result);
 		return result;
-	}		
+	}	
+	
+	////////////////////////////////////////////////////////
+	// 상품 검색 기능
+	
+	// 상품 검색 폼 요청
+	@RequestMapping("/product/productSearchForm1")
+	public String viewProductSearchForm1() {
+		return "product/productSearchForm1";
+	}
+	
+	// 상품 검색 메소드 1 - ArrayList 객체를 스프링컨테이너에게 반환하면 컨테이너는 json 형식으로 변환 후 
+	// 클라이언트에게 전송 : jackson-databind 의존객체 필요
+	@ResponseBody
+	@RequestMapping("/product/productSearch1")
+	public ArrayList<ProductDTO> productSearch1(@RequestParam HashMap<String, Object> map){
+	/*public ArrayList<ProductDTO> productSearch1(@RequestParam String type,
+									            @RequestParam String keyword){*/
+		ArrayList<ProductDTO> prdList = service.productSearch(map);		
+		return prdList;
+	}
 	
 }
 

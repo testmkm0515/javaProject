@@ -7,6 +7,8 @@ package com.spring_mvc.mybatis.service;
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.spring_mvc.mybatis.dto.ProductDTO;
 
 //Controller가 사용할 수 있는 기능
@@ -17,4 +19,5 @@ public interface IProductService {
 	ArrayList<ProductDTO> listAllProduct();
 	ProductDTO detailViewProduct(String prdNo);
 	String prdNoCheck(String prdNo);
+	ArrayList<ProductDTO> productSearch(HashMap<String, Object> map);
 }
