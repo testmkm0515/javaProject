@@ -67,7 +67,24 @@ IProductDAO 추상메소드를 현재 mapper에서 구현해야 함
 	<delete id="deleteProduct" parameterType="string">
 		DELETE FROM product WHERE prdNo=#{prdNo}
 	</delete>
+	
+	<!-- 상품번호 중복 확인 
+		 상품번호가 중복되면 상품번호값이 반환
+		 중복되지 않으면 null이 반환됨
+	-->
+	<select id="prdNoCheck" resultType="string" parameterType="string">
+		SELECT prdNo FROM product WHERE prdNo=#{prdNo}
+	</select>
 </mapper>
+
+
+
+
+
+
+
+
+
 
 
 

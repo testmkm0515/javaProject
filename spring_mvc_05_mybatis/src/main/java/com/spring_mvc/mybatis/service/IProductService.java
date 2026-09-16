@@ -16,4 +16,5 @@ public interface IProductService {
 	void deleteProduct(String prdNo);
 	ArrayList<ProductDTO> listAllProduct();
 	ProductDTO detailViewProduct(String prdNo);
+	String prdNoCheck(String prdNo);
 }

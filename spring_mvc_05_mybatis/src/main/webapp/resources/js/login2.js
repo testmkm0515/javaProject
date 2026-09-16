@@ -1,6 +1,6 @@
 $(document).ready(function(){ //문서 준비되는 시점에 발생하는 이벤트
 
-	$('#frmLogin').on('submit', function(){
+	$('#frmLogin2').on('submit', function(){
 		event.preventDefault(); //submit 이벤트 중지
 	
 		//서버로 요청할 때 전송할 data 준비
@@ -10,15 +10,18 @@ $(document).ready(function(){ //문서 준비되는 시점에 발생하는 이�
 		$.ajax({
 			//비동기요청에 대한 요청 정보 나열 k:v
 			type:"post", //method
-			url:"/mybatis/login", //요청 url
+			url:"login", //요청 url
 			data:{"id":user_id, "pw":user_pw}, //서버로 전송할 파라미터(payload)
 			dataType:'text', //서버로부터 반환받을 data의 type
 			//요청에 대한 응답 데이터 처리 - sucess 처리 함수의 매개변수로 전달
 			success:function(result){
-				if(result=="success")
-					message="로그인 성공";
-				else
+				if(result=="success"){
+					message="로그인 성공\n상품 조회 화면으로 이동합니다";
+					location.href="/mybatis/product/listAllProduct";
+					}
+				else{
 					message="로그인 실패";
+					}
 				alert(message);	
 			},
 		    error:function()

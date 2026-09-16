@@ -14,6 +14,12 @@ public class AjaxController {
 		return "ajax/loginForm";
 	}
 	
+	//로그인 폼 열기 - 로그인2로 로그인 진행 후 다른 화면으로 전환
+	@RequestMapping("/loginForm2")
+	public String loginForm2() {
+		return "ajax/loginForm2";
+	}
+	
 	//로그인 처리
 	@ResponseBody //메소드의 return값을 ResponseBody에 포함해서 응답
 	@RequestMapping("/login")

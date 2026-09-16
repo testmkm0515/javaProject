@@ -17,6 +17,7 @@
 	
 	<h4>Ajax 연습</h4>
 	<a href="<c:url value='/loginForm'/>">로그인</a>
+	<a href="<c:url value='/loginForm2'/>">로그인</a>
 	
 	
 </body>
