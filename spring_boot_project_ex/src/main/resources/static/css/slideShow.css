@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/*slideShow.css
+article 태그 - slideShow css 설정
+*/
+
+/* 슬라이드 쇼 높이 : 앞뒤 버튼 20px, 슬라이드 이미지 480px, 패널버튼 20px -> 520px */
+#slideShow{
+	position:relative;
+	background-color:#ffffff;
+	height:520px;
+	line-height:520px;
+	border-bottom:solid #CCC 1px;
+}
+
+#slideShowBox{ /*이미지 1개가 보이는 영역 : 슬라이드 쇼 영역*/
+	width:1280px;
+	height:480px;
+	text-align:center;
+	overflow:hidden; /* 5개 이미지 중 1개만 보이게 됨 전체 가로길이 1280 -> 이미지 넓이 1280이므로
+	이 영역을 넘어가는 나머지 이미지는 감춰진다(이미지는 inline 태그 이므로 왼쪽 오른쪽으로 나열 영역이
+	충분하지 않으면 hidden 속성에 의해 숨겨지게 됨*/
+}
+
+#slidePanel{ /*5개 이미지 모두의 영역 : 1280 * 5 => 6400*/
+	position:relative;
+	width:6400px;
+	height:480px;
+}
+
+.slideImage{ /*실제 보여지는 이미지의 영역 설정*/
+	float:left;
+	width:1280px;
+	height:480px;
+}
+
+/* prev/next 버튼 */
+#prevNextButtonBox {position:relative;z-index:10;} /*슬라이드 이미지 위로 올려야 되기 때문에 z-index 값 높게 잡음*/
+/* 슬라이드Panel 높이 480px, preButton 높이 78px 240-39=201*/
+#prevButton{position:absolute;top:201px;left:4%;opacity:0.8;cursor:pointer;}
+#nextButton{position:absolute;top:201px;right:4%;opacity:0.8;cursor:pointer;}
+
+#prevButton:hover{opacity:1;}
+#nextButton:hover{opacity:1;}
+
+/* 컨트롤 버튼 */
+#controlPanel{margin:0 auto; width:160px;}
+
+#controlPanel img{float:left;margin:10px;}
+
+
+
+
+
+
+
+
+
+
+
+

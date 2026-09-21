@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/*product.css*/
+
+#productBox{ /*베스트상품목록 전체 레이아웃*/
+	width:80%;
+	height:700px;
+	background:white;
+	padding:40px;
+	padding-top:20px;
+}
+
+#productBox .product{ /*베스트 상품 목록 행 각각의 레이아웃*/
+	display:inline-block;
+	width:100%;
+	margin-top:20px;
+}
+
+#productBox .product div{
+	display:inline-block;
+	width:303px;
+	height:303px;
+	border:solid 1px #cccccc;
+	margin:10px;
+}
+
+/* 이미지가 상위태그 div 영역에 꼭 맞게 */
+#productBox .product div img {
+	width:100%;
+	height:100%;
+}
+
+#productBox .product div:hover{ /* 마우스가 특정 상품에 올라가면 강조효과 - 클릭시 세부페이지 이동은 백엔드에서 진행 */
+	opacity:0.7;
+	border:solid 1px red;
+}
+
+
+
+
+
+
+

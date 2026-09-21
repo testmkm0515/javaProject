@@ -20,7 +20,14 @@
 	<a href="<c:url value='/product/productSearchForm1'/>">상품 검색1</a><br>
 	<a href="<c:url value='/product/productSearchForm2'/>">상품 검색2</a><br>
 	<a href="<c:url value='/product/productSearchForm3'/>">상품 검색3</a><br>
-	<br><br>
+	
+	<br>
+	<h4>파일 업로드/다운로드</h4>
+	<a href="<c:url value='/fileUploadForm'/>">파일 업로드</a><br>
+	<a href="<c:url value='/fileDownloadList'/>">파일 다운로드</a><br>	
+	<a href="<c:url value='/imageFileUploadForm'/>">비동기 파일 업로드</a><br>
+	
+	<br>
 	
 	<h4>Ajax 연습</h4>
 	<a href="<c:url value='/loginForm'/>">로그인</a>

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/*index.css*/
+
+/********************Header****************/
+#headerBox{ /*Header 영역 (logoBox, topmenu)*/
+	height:60px; /*로고 이미지 높이에 맞췄음*/
+	line-height:60px; /* 줄간격-수직으로 가운데 정렬 효과*/
+	padding:0;
+}
+
+#logoBox{ /*logo img 영역 태그*/
+	float:left;
+	height:60px;
+	line-height:60px;
+}
+
+/***************************메인메뉴 고정****************************/
+/*윈도우 스크롤 시 메인메뉴 고정*/
+/*css 생성, js파일에서 addClass()로 사용*/
+.mainMenuFixed{
+	position:fixed;
+	top:0px; /*위쪽 여백이 없음*/
+}
+
+/*메인메뉴 아래에 그림자 표시*/
+.mainMenuShadow{
+	box-shadow:0 3px 5px 0px gray;
+	/*   offset-x | offset-y | blur-radius | spread-radius | color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

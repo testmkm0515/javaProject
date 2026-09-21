@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* 모든 페이지에 공통으로 적용되는 css 설정 */
+/* common.css */
+
+*{margin:0 auto;} /* * 전체요소선택, 가운데정렬 */
+
+/* 컨텐츠의 레이아웃 넓이등 결정 */
+/* 모든 컨텐츠를 포함하는 box : #wrap */
+#wrap{
+	width:1280px; /* 컨텐츠 가로 넓이 고정 */
+	background-color:#eeeeee; /* 배경색 */
+	text-align:center;
+	position:relative; /*최 상위 요소 position 설정*/
+}
+
+/*모든 img 테두리 없음*/
+img{border:0;margin:0;}
+
+/******************* footer ****************************/
+#footerBox div{
+	background-color:#777777;
+	border:solid 1px #999999;
+	margin-top:10px;
+	padding:20px;
+	margin:0;
+}
+
+#moveToTop:hover{opacity:0.8;cursor:pointer;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

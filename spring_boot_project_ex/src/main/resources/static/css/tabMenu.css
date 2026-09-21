@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+/*tabMenu.css */
+
+/****************** TAB MENU ************************/
+/* tabMenu 전체 레이아웃, 중간 컨텐츠 이므로 높이도 명시적 설정 */
+ #tabMenuBox {
+ 	width:80%;
+ 	height:580px;
+ 	background:white;
+ 	padding:40px;
+ }
+ 
+ #tabMenu ul{height:30px; padding:0;} /* 메뉴 이미지(토글) 높이의 반을 사용 */	
+ 
+ #tabMenu ul li{
+ 	float:left;
+ 	list-style:none;
+ 	width:25%;
+ 	padding:0;
+ 	height:30px;
+ 	line-height:30px;
+ 	overflow:hidden;
+ 	margin-top:0px;
+ } 
+ 
+ /* tab에 마우스 올렸을 때 커서를 포인터로 변경 */
+ #tabMenu img:hover {cursor:point;}
+ 
+ /*탭 선택 표시 : js파일에서 addClass()에서 사용하기위한 클래스 선택자 : .selectedItem 동적으로 생성될 클래스 */
+ .selectedItem img{margin-top:-30px;}
+
+/******************TAB CONTENT******************************/
+#tabContent{
+	width:100%;
+	height:550px;
+	margin-top:20px;
+	border-top:solid 1px #cccccc;
+	border-bottom:solid 1px #cccccc;
+}
+
+/*content내의 모든 div 숨기고*/
+#tabContent div {
+	display:none;
+	padding:0;
+	margin-top:20px;
+}
+
+/* 첫 번째 div만 보임 */
+#tabContent div:first-child{display:block;}
+
+/*영역 안 컨텐츠(이미지)에 대한 레이아웃*/
+#tabContent img{width:90%; border:solid 1px #cccccc;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	

@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/* menu.css - nav 관련 요소 설정 */
+
+/* 모든 ul 태그에 적용 - 목록기호 none */
+ul{
+	margin-top:0;
+	padding:0;
+	list-style:none;
+}
+
+/**************Top Menu***************/
+#topMenuBox{
+	float:right; /*오른쪽 정렬*/
+	font-weight:bold;
+	padding-right:10px;
+}
+
+/**************Main Menu**************/
+
+#mainMenuBox{
+	width:1280px; /*전체 컨텐츠 가로 넓이와 동일하게 설정*/
+	height:35px; /*명시적 높이 설정 - 스크롤 되어도 상단에 고정 시키기 위해 최소크기 설정*/
+	line-height:35px; /*줄간격*/
+	background-color:#ffffff; /*white*/
+	z-index:10; /*스크롤 시 고정될때 맨 위에 나타날 수 있도록 값을 크게 설정*/
+	border-top:solid #CCC 1px;
+	border-bottom:solic #CCC 1px;
+}
+
+#mainMenuBox ul{
+	margin:0;
+}
+
+#mainMenuBox li{
+	float:left; /*block 태그를 inline 태그로 변경하면서 왼쪽정렬*/
+	text-align:center;
+	width:16%; /*항목 동일한 너비로*/
+	height:30px;
+	line-height:30px;
+}
+
+/* 메뉴요소의 가로 넓이의 합이 100%가 되도록 첫번째 메뉴 항목에 %를 19%로 재 설정
+20% 지만 일단 선택 메뉴가 맨 앞 메뉴 요소로 출력 할 것이기 때문에 border 영역 1% 남김 */
+
+#mainMenuBox li:first-child{ /*첫번째 메뉴 항목*/
+	width:19%;
+	border:solid 3px black; /*현재 선택(활성화) 메뉴 표시*/
+}
+
+#mainMenuBox ul li a{
+	text-decoration:none; /* <a>태그 밑줄 없애기 */
+	color:black;
+	font-size:14px;
+	font-weight:bold;
+}
+
+#mainMenuBox ul li a:hover{ /*각 메뉴 항목에 마우스 올렸을 때 */
+	color:red; /*글자색 빨강*/
+}
+
+/***************SUB MENU*******************/
+#subMenuBox{
+	width:1280px;
+	height:160px;
+	background-color:white;
+	text-align:center;
+	z-index:10; /*메인메뉴박스와 겹치지는 않기때문에 동일 숫자 사용, submenu도 다른 컨텐츠(슬라이드박스)위로 표현되어야 하므로 z-index 설정*/
+	padding-bottom:0;
+	position:absolute;
+	visibility:hidden; /*시작 시 sub 메뉴 항목 숨김*/
+}
+
+.subMenuItem {
+	width:15%;
+	background-color:white;
+	border-left:solid #CCC 1px;
+	border-right:solid #CCC 1px;
+	margin-top:10px;
+}
+
+#subMenuItem1{
+	position:absolute; /* 모든 submenuitem을 일열로 나열하기 위해 기준점에 모으는 작업 */
+	margin-left:5%; /* 여백 5%부터 시작해서 submenuitem width(15%) 만큼 오른쪽으로 여백을 늘림 */
+}
+
+#subMenuItem2{
+	position:absolute;
+	margin-left:20%;	
+}
+
+#subMenuItem3{
+	position:absolute;
+	margin-left:35%;
+}
+
+#subMenuItem4{
+	position:absolute;
+	margin-left:50%;
+}
+
+#subMenuItem5{
+	position:absolute;
+	margin-left:65%;
+}
+
+#subMenuItem6{
+	position:absolute;
+	margin-left:80%;
+}
+
+.subMenuItem ul{
+	background-color:white;
+}
+
+.submenuitem ul li{
+	height:35px;
+	line-height:35px;
+}
+
+.subMenuItem li a{
+	display:inline-block; /* a태그 inline 태그 영역처리를 위해서 block 태그 요소 추가 */
+	color:#333333;
+	text-decoration:none;
+}
+
+.subMenuItem li a:hover{
+	background-color:white;
+	text-decoration:underline;
+	color:black;
+}
+
+/*****************BOTTOM MENU***************************/
+#bottomMenuBox{
+	height:30px;
+	line-height:30px;
+}
+
+#bottomMenuBox li{
+	display:inline-block;
+	text-align:center;
+	padding:5px;
+	}
+	
+#bottomMenuBox a {
+	color:white;
+	font-weight:bold;
+	text-decoration:none;
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
