@@ -5,15 +5,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.1.1</version>
+		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring_boot_projectEx</groupId>
 	<artifactId>projectEx</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>spring_boot_project_ex</name>
-	<description>Demo project for spring Boot</description>
+	<name>spring_boot_mybatis</name>
+	<description/>
 	<url/>
 	<licenses>
 		<license/>
@@ -39,10 +39,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>4.0.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc17</artifactId>
+			<artifactId>ojdbc11</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -50,40 +55,6 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>4.0.1</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		
-		<!-- JSP 의존성 설정 -->		
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-		</dependency>	
-				
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>jakarta.servlet.jsp.jstl</groupId>
-			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-		</dependency>
-				
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
-		</dependency>
-				
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc-test</artifactId>
@@ -94,6 +65,41 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter-test</artifactId>
+			<version>4.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- JSP 의존성 설정 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!--비밀번호 암호화 위한 의존성 추가-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

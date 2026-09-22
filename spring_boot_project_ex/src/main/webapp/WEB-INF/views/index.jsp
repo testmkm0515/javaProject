@@ -7,14 +7,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>쇼핑몰</title> 
-
+		<!-- 관련 기능 추가 코드 -->
+		<c:import url="/WEB-INF/views/layout/head.jsp"></c:import>
 		<script type="text/javascript">
 		
 		</script>
 	</head>
 	<body>
     	<div id="wrap"> <!-- 전체 영역 -->
-            
+            <!--  top : 메뉴 -->
+            <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
             <section><!-- 컨텐츠 영역 -->
             	<article  id="slideShow"> <!-- 슬라이드 쇼 -->   
             	
@@ -75,7 +77,8 @@
 					</div>     
                 </article>
             </section>
-
+			<!-- bottom -->
+			<c:import url="/WEB-INF/views/layout/bottom.jsp"></c:import>
       </div> <!-- wrap 끝 -->
     </body>
 </html>

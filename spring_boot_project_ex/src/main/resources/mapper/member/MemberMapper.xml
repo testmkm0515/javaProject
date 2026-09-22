@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot.projectEx.dao.IMemberDAO">
+		<!-- 로그인 처리 -->
+		<!-- ID와 비밀번호 일치하면 memId 반환 
+		<select id="loginCheck" parameterType="hashmap" resultType="string">
+			SELECT memId FROM member WHERE memId=#{id} AND memPwd=#{pwd}
+		</select>
+		-->
+		<!-- id가 일치하면 비밀번호 반환 : 비밀번호 암호화 -->
+		<select id="loginCheck" parameterType="string" resultType="string">
+			SELECT memPwd FROM member WHERE memId=#{id}
+		</select>		
+		<!-- public String idCheck(String id) --> 	
+		<select id="idCheck" resultType="string" parameterType="string">
+			SELECT memId FROM member WHERE memId=#{id}
+		</select>	
+		
+		<!-- 회원 등록 : void insertMember(MemberDTO dto) 연습문제 : 회원가입되도록 태그 구성 ~16:50-->
+		<insert id="insertMember" parameterType="com.spring_boot.projectEx.dto.MemberDTO">
+			INSERT INTO member(memId, memPwd, memName, memEmail, memHp, memZipcode, memAddress1, memAddress2)
+			VALUES (#{memId},#{memPwd}, #{memName}, #{memEmail}, #{memHp}, #{memZipcode}, #{memAddress1},#{memAddress2})
+		</insert>		  
+  
+  </mapper>
+  
+  
+  
+  
+  
