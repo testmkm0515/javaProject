@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot.projectEx.dao.IProductDAO">
+    <!-- 테이블 컬럼명과 클래스 필드명이 다를 경우 매칭을 위해 구성  -->
+	<resultMap id="prdResult" type="com.spring_boot.projectEx.dto.ProductDTO">
+		<result property="prdNo" column="prdNo"/>
+		<result property="prdName" column="prdName"/>
+		<result property="prdPrice" column="prdPrice"/>
+		<result property="prdCompany" column="prdCompany"/>
+		<result property="prdStock" column="prdStock"/>
+		<result property="prdDescript" column="prdDescript"/>
+		<result property="prdImg" column="prdImg"/>
+		<result property="ctgId" column="ctgId"/>	
+	</resultMap>
+	
+	<!-- 카테고리별 상품 조회 : ArrayList<ProductDTO> listCtgProduct(String ctgId)-->
+	<select id="listCtgProduct" parameterType="string" resultMap="prdResult">
+		SELECT * FROM product WHERE ctgId=#{ctgId} ORDER BY prdNo
+	</select>
+	
+	<!-- 상품 상세보기 : ProductDTO detailViewProduct(String prdNo); -->
+	<select id="detailViewProduct" parameterType="string"
+		resultType="com.spring_boot.projectEx.dto.ProductDTO">
+		SELECT * FROM product WHERE prdNo=#{prdNo}	
+	</select>
+
+
+</mapper>  
+
+
+
+
+
+
+
+
+

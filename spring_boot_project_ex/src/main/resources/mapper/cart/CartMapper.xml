@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.spring_boot.projectEx.dao.ICartDAO">
+ 	<!-- int checkPrdInCart(HashMap<String,Object> map) -->
+ 	<select id="checkPrdInCart" parameterType="hashmap" resultType="int">
+ 	 <!-- memId와 prdNo가 모두 매칭되는 레코드의 개수를 반환 -->
+ 	 	SELECT COUNT(*)
+ 	 	FROM cart
+ 	 	WHERE prdNo=#{prdNo} AND memId=#{memId} 	
+ 	</select>
+ 	
+ 	<!-- void insertCart(CartDTO dto); //새로운 상품 장바구니에 추가 -->
+ 	<insert id="insertCart" parameterType="com.spring_boot.projectEx.dto.CartDTO">
+ 		<!-- cartNo는 자동증가되는 기본값 설정했음 -->
+ 		INSERT INTO cart(memId, prdNo, cartQty)
+ 		VALUES (#{memId},#{prdNo},#{cartQty})
+ 	</insert>
+ 	
+ 	<!-- void updateQtyInCart(CartDTO dto);//기존 추가된 상품의 수량 변경 
+  		UPDATE cart
+ 		SET cartQty = #{cartQty} //새로 전달된 수량으로 수정
+ 	-->
+ 	<update id="updateQtyInCart" parameterType="com.spring_boot.projectEx.dto.CartDTO">
+ 	<!-- 새로 전달된 수량과 기존 수량을 합산 -->
+ 		UPDATE cart
+ 		SET cartQty = cartQty + #{cartQty} 
+ 		WHERE memId=#{memId} AND prdNo=#{prdNo} 	
+ 	</update>
+ 	
+ 	<!-- 장바구니 목록 출력 : ArrayList<CartDTO> cartList(String memId); //특정 회원 장바구니 목록 -->
+ 	<select id="cartList" parameterType="string"
+ 			resultType="com.spring_boot.projectEx.dto.CartDTO">
+ 		SELECT c.cartNo, p.prdNo, p.prdImg, p.prdName, p.prdPrice, c.cartQty, c.memId
+ 		FROM product p, cart c
+ 		WHERE p.prdNo=c.prdNo AND c.memId=#{memId}
+ 		ORDER BY c.cartNo	
+ 	</select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -41,6 +41,12 @@ public class MemberController {
 		return result;
 	}
 	
+	@GetMapping("/member/logout")
+	public String userLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 	//회원가입 폼 요청
 	@GetMapping("/member/joinForm")
 	public String joinForm() {
