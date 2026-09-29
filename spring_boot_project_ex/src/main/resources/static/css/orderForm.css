@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+h3 { margin-top:5px;}
+table { width:900px; margin-top:5px; margin-bottom:5px;border-collapse: collapse;}
+table caption { font-size: 20px; font-weight: 600; margin-bottom: 5px;}	
+table tr { height:30px; }
+table th, td { border:solid gray 1px; padding:10px;}
+table th { background-color:#777; color: #fff; width: 100px; }	
+table td { text-align: left; width: 300px; }	
+input, select { text-align:left; height: 20px; margin: 2px 0;}
+.order_list td { text-align: center; }

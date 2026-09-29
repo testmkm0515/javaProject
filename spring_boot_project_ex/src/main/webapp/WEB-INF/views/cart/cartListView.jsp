@@ -31,7 +31,7 @@
 						<th>구매예정금액</th>						
 					</tr>
 					<c:forEach var="prd" items="${cartList }">
-			            <tr>
+			            <tr >
 			              <td><input type="checkbox" class="chkDelete" value="${prd.cartNo}"></td>
 			               <td><img src="<c:url value='/prd_images/${prd.prdImg}' />" width="30" height="20"></td>			              
 			               <td>${prd.prdName }</td>

@@ -37,6 +37,64 @@
  		WHERE p.prdNo=c.prdNo AND c.memId=#{memId}
  		ORDER BY c.cartNo	
  	</select>
+ 	
+ 	<!--void deleteCart(String cartNo); //장바구니 상품 삭제
+ 	<delete id="deleteCart" parameterType="string">
+ 		DELETE FROM cart
+ 		WHERE cartNo=#{cartNo}
+ 	</delete>-->
+ 	<!-- void deleteCart(ArrayList<String> chkArr);//장바구니 상품 삭제 
+ 		 array에 2,21이 넘어왔다고 가정하면
+ 		 delete from cart where cartNo in (2,21)
+ 	-->
+ 	<delete id="deleteCart" parameterType="List">
+ 		DELETE FROM cart
+ 		WHERE cartNo IN
+ 		<foreach collection="list" item="item" index="i" open="(" separator="," close=")">
+ 			#{item}
+ 		</foreach>
+ 	</delete> 	
+ 	
+ 	<!-- void updateCart(CartDTO dto);//주문전 장바구니 수량 변경 -->
+ 	<update id="updateCart" parameterType="com.spring_boot.projectEx.dto.CartDTO">
+ 		UPDATE cart
+ 		SET cartQty=#{cartQty}
+ 		WHERE cartNo=#{cartNo}
+ 	</update>
+ 	
+ 	<!-- public MemberDTO getMemberInfo(String memId); //주문자 정보 추출 
+ 		 추출 컬럼은 필요한 컬럼만 select해서 반환되도록 구성
+ 	 -->
+ 	 <select id="getMemberInfo" parameterType="string" resultType="com.spring_boot.projectEx.dto.MemberDTO">
+ 	 	SELECT memId, memName, memHP, memZipcode, memAddress1, memAddress2
+ 	 	FROM member
+ 	 	WHERE memId=#{memId} 	 
+ 	 </select>
+ 	 
+ 	 <!-- void insertOrderInfo(OrderInfoDTO ordInfoDto); //주문 및 배송 정보 -->
+ 	 <insert id="insertOrderInfo" parameterType="com.spring_boot.projectEx.dto.OrderInfoDTO">
+		INSERT INTO order_info(ordNo, memId, ordReceiver, ordRcvZipcode,
+  								ordRcvAddress1, ordRcvAddress2, ordRcvPhone, 
+  								ordRcvMsg, ordPay)
+		VALUES(#{ordNo}, #{memId}, #{ordRcvReceiver}, #{ordRcvZipcode},
+  					   #{ordRcvAddress1}, #{ordRcvAddress2}, #{ordRcvPhone}, 
+  					   #{ordRcvMsg},#{ordPay})	
+ 	 </insert>
+ 	 
+ 	 <!-- void insertOrderProduct(HashMap<String, Object> map); //주문 상품 정보 저장 -->
+ 	 <insert id="insertOrderProduct" parameterType="hashmap">
+ 	 	INSERT INTO order_product(ordNo, prdNo, ordQty)
+ 	 		SELECT #{ordNo}, prdNo, cartQty
+ 	 		FROM cart
+ 	 		WHERE memId=#{memId} 	 
+ 	 </insert>
+ 	 
+	<!-- void deleteCartAfterOrder(String memId) -->
+	<delete id="deleteCartAfterOrder" parameterType="string">
+		DELETE FROM cart
+		WHERE memId=#{memId}
+	</delete> 	 
+ 	
  </mapper>
  
  
