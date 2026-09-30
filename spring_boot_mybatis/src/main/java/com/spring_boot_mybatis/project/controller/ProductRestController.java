@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +25,10 @@ public class ProductRestController {
 	public ArrayList<ProductDTO> productSearch1(@RequestParam HashMap<String, Object> map){
 		ArrayList<ProductDTO> prdList = service.productSearch(map);		
 		return prdList;
+	}
+
+	@GetMapping("hello1")
+	public String hello() {
+		return "안녕하세요";
 	}
 }
