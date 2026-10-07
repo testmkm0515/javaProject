@@ -19,7 +19,7 @@ import com.spring_boot_react.project.dto.ProductDTO;
 import com.spring_boot_react.project.service.ProductService;
 
 
-
+//동일 자원 요청인지 확인
 @CrossOrigin("*")
 @RestController
 public class ProductRestController {
